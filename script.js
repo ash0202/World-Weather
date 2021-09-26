@@ -5,6 +5,7 @@ return data.json();
 .then((data)=>{
     data.forEach(element => {
        // console.log(element.name +' '+element.capital+' '+element.region+" "+element.latlng+' '+element.alpha2Code+' ')
+
        let myDiv=document.querySelector('.containers');
        let div=document.createElement('div')
         div.className="main"
@@ -77,6 +78,7 @@ function showWhether(code,name)
         let temp_min=data.main.temp_min
         min.innerHTML=" Min Temperature="+Math.round((temp_min-273))+"&deg C"
 
+        modalDiv.innerText="";
         modalDiv.appendChild(feels);
         modalDiv.appendChild(hum);
         modalDiv.appendChild(pres);
