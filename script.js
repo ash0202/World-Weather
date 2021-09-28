@@ -6,13 +6,16 @@ return data.json();
     data.forEach(element => {
        // console.log(element.name +' '+element.capital+' '+element.region+" "+element.latlng+' '+element.alpha2Code+' ')
 
+       //console.log(element)
+    //   console.log()
        let myDiv=document.querySelector('.containers');
        let div=document.createElement('div')
         div.className="main"
        let h1=document.createElement('h1');
        h1.innerText=element.name;
        let img=document.createElement('img')
-       img.src=element.flags[0];
+       img.src=element.flags.svg;
+      // console.log(element.flags[0])
        let cap=document.createElement('p');
        cap.innerText="Capital : "+element.capital;
        let reg=document.createElement('p');
