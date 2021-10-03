@@ -1,4 +1,4 @@
-fetch('https://restcountries.com/v2/all')
+fetch('https://restcountries.com/v3/all') //https://restcountries.com/v3/all
 .then(function(data){
 return data.json();
 })
@@ -12,16 +12,17 @@ return data.json();
        let div=document.createElement('div')
         div.className="main"
        let h1=document.createElement('h1');
-       h1.innerText=element.name;
+       h1.innerText=element.name.common;
        let img=document.createElement('img')
-       img.src=element.flags.svg;
+       img.src=element.flags[0];
+       console.log(element.flags.svg)
       // console.log(element.flags[0])
        let cap=document.createElement('p');
        cap.innerText="Capital : "+element.capital;
        let reg=document.createElement('p');
        reg.innerText="Region : "+element.region;
        let countryCode=document.createElement('p');
-       countryCode.innerText="Country Code : "+element.alpha2Code;
+       countryCode.innerText="Country Code : "+element.cca2;
        let latlng=document.createElement('p');
        latlng.innerText="Latlng : ["+element.latlng+"]";
       div.appendChild(h1);
@@ -32,7 +33,7 @@ return data.json();
        div.appendChild(latlng);
        //let btn=`<button onclick='showWhether("${element.capital}")'>Click For Weather</button>`
       // let btn=`<button type="button" class="btn btn-primary button" data-toggle="modal" data-target="#exampleModal" onclick='showWhether("${element.capital}")'>Click For Weather</button>`
-      let btn=`<a href="#myModal" role="button" class="btn btn-lg btn-primary button" data-bs-toggle="modal" onclick='showWhether("${element.capital}","${element.name}")'>Click For Weather</a>`
+      let btn=`<a href="#myModal" role="button" class="btn btn-lg btn-primary button" data-bs-toggle="modal" onclick='showWhether("${element.capital}","${element.name.common}")'>Click For Weather</a>`
        div.innerHTML= div.innerHTML+btn
        myDiv.appendChild(div);
        
